@@ -2,58 +2,58 @@
 
 ## users テーブル
 
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| name     | string | null: false |
-| email    | string | null: false |
-| password | string | null: false |
-| nickname | string | null: false |
-| birthday | integer| null: false |
+| Column         | Type   | Options     |
+| -------------- | ------ | ----------- |
+| name           | string | null: false |
+| name(katakana) | string | null: false |
+| email          | string | null: false |
+| password       | string | null: false |
+| nickname       | string | null: false |
+| birthday       |  date  | null: false |
 
 ### Association
 - has_many : items
-- has_many : address
-
+- has_many : purchases 
 
 ## items テーブル
 
 | Column     |    Type      |            Options            |
 | ---------- |  ----------- | ----------------------------- |
-| image      |  references  | null: false                   |
+| image      |    string    | null: false                   |
 | money      |    integer   | null: false,foreign_key: true |
 | item name  |    string    | null: false                   |
-| explanation|    string    | null: false                   |
+| explanation|    text      | null: false                   |
 | category   |    integer   | null: false                   |
+|  Status    |    string    | null:false                    |
 
 ### Association
-- belongs_to :users
-- belongs_to :address
+- belongs_to :user
+- has_many :purchases
 
 
-## address テーブル
+## addresses テーブル
 
 |    Column     |    Type      | Options     |
 | ------------- |  ----------- | ----------- |
-| postal code   |    integer   | null: false |
-| prefectures   |    string    | null: false |
+| postal code   |    string    | null: false |
+| prefectures   |    integer   | null: false |
 | city          |    string    | null: false |
 | address       |    string    | null: false |
 | building name |    string    | null: false |
-| phone number  |    integer   | null: false |
+| phone number  |    string    | null: false |
 
 ### Association
-- belongs_to :items
-- belongs_to :address
+- belongs_to :purchases
 
 
 ## purchases テーブル
 
 | Column   | Type   |            Options            |
 | -------- | ------ | ----------------------------- |
-| buyer    | string | null: false,foreign_key: true |
+|  user_id | string | null: false,foreign_key: true |
 
 ### Association
-- has_many : users
-- has_many : address
+- belongs_to : user
+- belongs_to : address
 - has_many : items
 
