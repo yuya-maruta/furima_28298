@@ -2,6 +2,7 @@
 
 ## users テーブル
 
+
 | Column         | Type   | Options     |
 | -------------- | ------ | ----------- |
 | name           | string | null: false |
@@ -46,6 +47,7 @@
 - belongs_to :purchases
 
 
+
 ## purchases テーブル
 
 | Column   | Type   |            Options            |
@@ -53,7 +55,7 @@
 |  user_id | string | null: false,foreign_key: true |
 
 ### Association
-- belongs_to : user
-- belongs_to : address
+- has_many : users
+- has_many : address
 - has_many : items
 
