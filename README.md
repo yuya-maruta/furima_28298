@@ -19,14 +19,19 @@
 
 ## items テーブル
 
-| Column     |    Type      |            Options            |
-| ---------- |  ----------- | ----------------------------- |
-| image      |    string    | null: false                   |
-| money      |    integer   | null: false,foreign_key: true |
-| name       |    string    | null: false                   |
-| explanation|    text      | null: false                   |
-| category   |    integer   | null: false                   |
-|  Status    |    string    | null:false                    |
+|     Column      |    Type      |            Options            |
+| ----------------|  ----------- | ----------------------------- |
+| image           |    string    | null: false                   |
+| money           |    integer   | null: false,foreign_key: true |
+| name            |    string    | null: false                   |
+| explanation     |    text      | null: false                   |
+| category        |    integer   | null: false                   |
+|  Status         |    integer   | null:false                    |
+| Delivery fee    |    integer   | null: false                   |
+| Shipping region |    string    | null: false                   |
+| Delivery time   |    integer   | null:false                    |
+
+
 
 ### Association
 - has_one  :user
@@ -53,11 +58,12 @@
 
 | Column   | Type       |            Options            |
 | -------- | ------     | ----------------------------- |
-|  user_id | references | null: false,foreign_key: true |
+|  user    | references | null: false,foreign_key: true |
 |  item    | references | foreign_key: true             |
 
 ### Association
-- has_many : users
-- has_many : address
-- has_many : items
+- has_many  :users
+- has_many  : address
+- belong_to : item
+
 
