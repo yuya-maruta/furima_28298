@@ -19,18 +19,18 @@
 
 ## items テーブル
 
-|     Column      |    Type      |     Options     |
-| ----------------|  ----------- | ----------------|
-| image           |    string    | null: false     |
-| money           |    integer   | null: false,    |
-| name            |    string    | null: false,    |
-| explanation     |    text      | null: false     |
-| category        |    integer   | null: false     |
-|  Status         |    integer   | null:false      |
-| Delivery fee    |    integer   | null: false     |
-| Shipping region |    integer   | null: false     |
-| Delivery time   |    integer   | null:false      |
-
+|     Column      |    Type      |     Options                 |
+| ----------------|  ----------- | ----------------------------|
+| image           |    string    | null: false                 |
+| money           |    integer   | null: false                 |
+| name            |    string    | null: false                 |
+| explanation     |    text      | null: false                 |
+| category        |    integer   | null: false                 |
+|  Status         |    integer   | null:false                  |
+| Delivery fee    |    integer   | null: false                 |
+| Shipping region |    integer   | null: false                 |
+| Delivery time   |    integer   | null:false                  |
+| user            | references   |null: false,foreign_key: true|
 
 
 ### Association
@@ -48,7 +48,7 @@
 | address       |    string    | null: false                 |
 | building name |    string    |                             |
 | phone_number  |    string    | null: false                 |
-| purchase_id   |   references |null: false,foreign_key: true|
+| purchase      |   references |null: false,foreign_key: true|
 
 ### Association
 - belongs_to :purchase 
