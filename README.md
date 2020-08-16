@@ -28,14 +28,14 @@
 | category        |    integer   | null: false                   |
 |  Status         |    integer   | null:false                    |
 | Delivery fee    |    integer   | null: false                   |
-| Shipping region |    string    | null: false                   |
+| Shipping region |    integer   | null: false                   |
 | Delivery time   |    integer   | null:false                    |
 
 
 
 ### Association
-- has_one  :user
-- has_many :purchases
+- belong_to :user
+- has_one   :purchases
 
 
 ## addresses テーブル
@@ -50,7 +50,7 @@
 | phone_number  |    string    | null: false |
 
 ### Association
-- has_one :purchases
+- belongs_to :purchases
 
 
 
@@ -59,11 +59,11 @@
 | Column   | Type       |            Options            |
 | -------- | ------     | ----------------------------- |
 |  user    | references | null: false,foreign_key: true |
-|  item    | references | foreign_key: true             |
+|  item    | references | null: false,foreign_key: true |
 
 ### Association
 - has_many  :users
-- has_many  : address
+- has_one   :address
 - belong_to : item
 
 
