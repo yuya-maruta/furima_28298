@@ -2,58 +2,69 @@
 
 ## users テーブル
 
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| name     | string | null: false |
-| email    | string | null: false |
-| password | string | null: false |
-| nickname | string | null: false |
-| birthday | integer| null: false |
+|       Column            | Type   | Options     |
+| ----------------------- | ------ | ----------- |
+| last name               | string | null: false |
+| first name              | string | null: false |
+| last name(katakana)     | string | null: false |
+| first name(katakana)    | string | null: false |
+| email                   | string | null: false |
+| password                | string | null: false |
+| nickname                | string | null: false |
+| birthday                |  date  | null: false |
 
 ### Association
 - has_many : items
-- has_many : address
-
+- has_many : purchases 
 
 ## items テーブル
 
-| Column     |    Type      |            Options            |
-| ---------- |  ----------- | ----------------------------- |
-| image      |  references  | null: false                   |
-| money      |    integer   | null: false,foreign_key: true |
-| item name  |    string    | null: false                   |
-| explanation|    string    | null: false                   |
-| category   |    integer   | null: false                   |
+|     Column      |    Type      |     Options                 |
+| ----------------|  ----------- | ----------------------------|
+| image           |    string    | null: false                 |
+| money           |    integer   | null: false                 |
+| name            |    string    | null: false                 |
+| explanation     |    text      | null: false                 |
+| category        |    integer   | null: false                 |
+|  Status         |    integer   | null:false                  |
+| Delivery fee    |    integer   | null: false                 |
+| Shipping region |    integer   | null: false                 |
+| Delivery time   |    integer   | null:false                  |
+| user            | references   |null: false,foreign_key: true|
+
 
 ### Association
-- belongs_to :users
-- belongs_to :address
+- belongs_to :user
+- has_one   :purchase
 
 
-## address テーブル
+## addresses テーブル
 
-|    Column     |    Type      | Options     |
-| ------------- |  ----------- | ----------- |
-| postal code   |    integer   | null: false |
-| prefectures   |    string    | null: false |
-| city          |    string    | null: false |
-| address       |    string    | null: false |
-| building name |    string    | null: false |
-| phone number  |    integer   | null: false |
+|    Column     |    Type      |   Options                   |
+| ------------- |  ----------- | ----------------------------|
+| postal code   |    string    | null: false                 |
+| prefectures   |    integer   | null: false                 |
+| city          |    string    | null: false                 |
+| address       |    string    | null: false                 |
+| building name |    string    |                             |
+| phone_number  |    string    | null: false                 |
+| purchase      |   references |null: false,foreign_key: true|
 
 ### Association
-- belongs_to :items
-- belongs_to :address
+- belongs_to :purchase 
+
 
 
 ## purchases テーブル
 
-| Column   | Type   |            Options            |
-| -------- | ------ | ----------------------------- |
-| buyer    | string | null: false,foreign_key: true |
+| Column   | Type       |            Options            |
+| -------- | ------     | ----------------------------- |
+|  user    | references | null: false,foreign_key: true |
+|  item    | references | null: false,foreign_key: true |
 
 ### Association
-- has_many : users
-- has_many : address
-- has_many : items
+- belongs_to  :user
+- has_one   :address
+- belong_to : item
+
 
