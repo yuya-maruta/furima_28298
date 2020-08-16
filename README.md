@@ -23,7 +23,7 @@
 | ----------------|  ----------- | ----------------------------- |
 | image           |    string    | null: false                   |
 | money           |    integer   | null: false,foreign_key: true |
-| name            |    string    | null: false                   |
+| name            |    string    | null: false,foreign_key: true |
 | explanation     |    text      | null: false                   |
 | category        |    integer   | null: false                   |
 |  Status         |    integer   | null:false                    |
@@ -34,23 +34,26 @@
 
 
 ### Association
-- belong_to :user
-- has_one   :purchases
+- belongs_to :user
+- has_one   :purchase
 
 
 ## addresses テーブル
 
-|    Column     |    Type      | Options     |
-| ------------- |  ----------- | ----------- |
-| postal code   |    string    | null: false |
-| prefectures   |    integer   | null: false |
-| city          |    string    | null: false |
-| address       |    string    | null: false |
-| building name |    string    |             |
-| phone_number  |    string    | null: false |
+|    Column     |    Type      |   Options                   |
+| ------------- |  ----------- | ----------------------------|
+| postal code   |    string    | null: false                 |
+| prefectures   |    integer   | null: false                 |
+| city          |    string    | null: false                 |
+| address       |    string    | null: false                 |
+| building name |    string    |                             |
+| phone_number  |    string    | null: false                 |
+| user_id       |   references |null: false,foreign_key: true|
 
 ### Association
-- belongs_to :purchases
+- belongs_to :purchase
+- has_many:items
+- 
 
 
 
@@ -62,7 +65,7 @@
 |  item    | references | null: false,foreign_key: true |
 
 ### Association
-- has_many  :users
+- belongs_to  :user
 - has_one   :address
 - belong_to : item
 
