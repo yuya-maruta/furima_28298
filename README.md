@@ -48,6 +48,7 @@
 - has_one :purchases
 
 
+
 ## purchases テーブル
 
 | Column   | Type       |            Options            |
@@ -56,7 +57,7 @@
 |  item    | references | foreign_key: true             |
 
 ### Association
-- belongs_to : user
-- belongs_to : address
+- has_many : users
+- has_many : address
 - has_many : items
 
