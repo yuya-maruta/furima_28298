@@ -7,7 +7,7 @@ FactoryBot.define do
     birthday             {"2020/1/1"}
     nickname              {"tana"}
     email                 {"tana@gmail.com"}
-    password              {"00000000"}
+    password              {"test1234"}
     password_confirmation {password}
   end
 end
