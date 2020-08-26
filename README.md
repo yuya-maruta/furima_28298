@@ -26,10 +26,10 @@
 | name            |    string    | null: false                 |
 | explanation     |    text      | null: false                 |
 | category        |    integer   | null: false                 |
-|  Status         |    integer   | null:false                  |
-| Delivery fee    |    integer   | null: false                 |
-| Shipping region |    integer   | null: false                 |
-| Delivery time   |    integer   | null:false                  |
+| status         |    integer   | null:false                  |
+| delivery fee    |    integer   | null: false                 |
+| shopping region |    integer   | null: false                 |
+| delivery time   |    integer   | null:false                  |
 | user            | references   |null: false,foreign_key: true|
 
 
