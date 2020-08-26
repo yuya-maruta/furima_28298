@@ -1,11 +1,6 @@
 require 'rails_helper'
 
-#describe Item do
-  #before do
-    #@item = FactoryBot.build(:item)
-    #@item.image.attach)
-  #end
-  #RSpec.describe Item, type: :model do
+
     describe Item do
       before do
         @item = FactoryBot.build(:item)
@@ -77,6 +72,19 @@ require 'rails_helper'
         @item.money = ""
         @item.valid?
         expect(@item.errors.full_messages).to include("Money can't be blank")
+      end
+
+      it "価格が299以下であれば登録できない" do
+        @item.money = "299"
+        @item.valid?
+        #binding.pry
+        expect(@item.errors.full_messages).to include("Money must be greater than 300")
+      end
+
+      it "価格が10000000以上であれば登録できない" do
+        @item.money = "10000000"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Money must be less than 9999999")
       end
       
 

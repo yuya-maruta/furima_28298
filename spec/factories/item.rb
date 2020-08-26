@@ -13,5 +13,7 @@ FactoryBot.define do
     deliveryfee_id                 {"2"}
     shoppingregion_id              {"2"}
     deliverytime_id       {"2"}
+    association :user
+
   end
 end
