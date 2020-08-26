@@ -10,6 +10,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :deliveryfee_id,         null:false  
       t.integer :shoppingregion_id,       null:false  
       t.integer :deliverytime_id,         null:false  
+      t.boolean :sales_status,               null: false, default: false
       t.references :user,              null:false,foreign_kye:true  
       t.timestamps
     end

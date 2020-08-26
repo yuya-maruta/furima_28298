@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2020_08_21_084913) do
     t.integer "deliveryfee_id", null: false
     t.integer "shoppingregion_id", null: false
     t.integer "deliverytime_id", null: false
+    t.boolean "sales_status", default: false, null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
