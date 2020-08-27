@@ -8,6 +8,8 @@ class ItemsController < ApplicationController
   def index
    
    @items = Item.all.order("created_at DESC")
+  
+
    
   end
 
@@ -16,13 +18,15 @@ class ItemsController < ApplicationController
    if @item.save
     redirect_to root_path
    else
+    
+
     render :index
    end
 
   end
   
   def show
-    #@item = Item.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
   def edit
