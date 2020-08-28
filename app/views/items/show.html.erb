@@ -31,7 +31,7 @@
 
       <%= link_to '商品の編集', edit_item_path(@item.id), method: :get, class: "item-red-btn" %>
        <p class='or-text'>or</p>
-      <%= link_to '削除', "#", method: :delete, class:'item-destroy' %>
+      <%= link_to '削除', "/items/#{@item.id}", method: :delete, class:'item-destroy' %>
     <% end %>
 
     <%# 商品が売れていない場合はこちらを表示しましょう %>
@@ -56,7 +56,7 @@
         </tr>
         <tr>
           <th class="detail-item">商品の状態</th>
-          <td class="detail-value"><%= @item.explanation %></td>
+          <td class="detail-value"><%= @item.status.name %></td>
         </tr>
         <tr>
           <th class="detail-item">配送料の負担</th>

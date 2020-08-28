@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :show, :update]
+  before_action :set_item, only: [:edit, :show, :update,:destroy]
 
   
   def new
@@ -35,6 +35,14 @@ class ItemsController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    if @item.user_id == current_user.id
+       @item.destroy 
+       redirect_to root_path
+     end
+  end
+
 
   private
   def item_params
