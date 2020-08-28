@@ -44,8 +44,6 @@ class ItemsController < ApplicationController
      end
   end
 
-  #item = Item.find(params[:id])
-  #item.destroy
 
   private
   def item_params
