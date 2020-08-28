@@ -1,6 +1,6 @@
 class Purchase < ApplicationRecord
-   #belongs_to  :user
-   #has_one   :address
-   #belong_to :item
+   belongs_to  :user
+   has_one   :address
+   belongs_to :item
 
 end
