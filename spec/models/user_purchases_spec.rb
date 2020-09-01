@@ -6,8 +6,8 @@ RSpec.describe UserPurchases do
       @user_purchases = FactoryBot.build(:user_purchases)
     end
 
-    describe '購入の保存が上手くいくとき' do
-      it "nicknameとemail、passwordとpassword_confirmation、苗字名前と苗字（カナ）名前（カナ）、生年月日が存在すれば登録できる" do
+    describe '購入の保存がうまくいくとき' do
+      it "postal_codeとcity、house_numberとphone_numberが存在すれば登録できる" do
         expect(@user).to be_valid
 
       end
@@ -17,7 +17,7 @@ RSpec.describe UserPurchases do
       end
     end
 
-
+   context '購入保存がうまくいかないとき' do
 
     it 'postal_codeが空だと保存できないこと' do
       @user_purchases.postal_code = nil
@@ -36,11 +36,6 @@ RSpec.describe UserPurchases do
       expect(@user_purchases.errors.full_messages).to include("House_number code can't be blank")
     end
 
-    it 'building_nameが空だと保存できない' do
-      @user_purchases.building_name = nil
-      @user_purchases.valid?
-      expect(@user_purchases.errors.full_messages).to include("Building_name code can't be blank")
-    end
 
     it 'phone_numberが空だと保存できない' do
       @user_purchases.phone_number = nil
@@ -48,7 +43,7 @@ RSpec.describe UserPurchases do
       expect(@user_purchases.errors.full_messages).to include("Building_name code can't be blank")
     end
 
-
+  end
 
     
    
