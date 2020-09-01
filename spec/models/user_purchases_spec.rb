@@ -23,6 +23,12 @@ RSpec.describe UserPurchases do
       @user_purchases.valid?
       expect(@user_purchases.errors.full_messages).to include("Postalcode can't be blank", "Postalcode is invalid. Include hyphen(-)")
     end
+    
+    it 'postalcodeにハイフンがないと保存できない' do
+      @user_purchases.postalcode = '(-)'
+      @user_purchases.valid?
+      expect(@user_purchases.errors.full_messages).to include("Postalcode is invalid. Include hyphen(-)")
+    end
 
     it 'cityが空だと保存できないこと' do
       @user_purchases.city = ''
@@ -49,6 +55,13 @@ RSpec.describe UserPurchases do
         @user_purchases.valid?
         expect(@user_purchases.errors.full_messages).to include("Prefecture can't be blank")
       end
+
+      it "phone_numberが12文字以上でハイフンがあれば登録できない" do
+        @user_purchases.phone_number = "0000000000000"
+        @user_purchases.valid?
+        expect(@user_purchases.errors.full_messages).to include("Phone number It is invalid. Do not include hyphen (-)")
+      end
+
    end
 
   end
