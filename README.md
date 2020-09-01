@@ -43,7 +43,7 @@
 |    Column     |    Type      |   Options                   |
 | ------------- |  ----------- | ----------------------------|
 | postal code   |    string    | null: false                 |
-| prefectures   |    integer   | null: false                 |
+| prefecture   |    integer   | null: false                 |
 | city          |    string    | null: false                 |
 | house_number  |    string    | null: false                 |
 | building_name |    string    |                             |
