@@ -120,8 +120,11 @@
       </div>
     </div>
     <div class='buy-btn'>
+    <%# if current_user %>
+    <%#= form_with(model: [@item], local: true) do |form| %>
       <%= f.submit "購入" ,class:"buy-red-btn" %>
-
+      <%# end %>
+    <%# else %>
     </div>
     <% end %>
   </div>
