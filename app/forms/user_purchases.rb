@@ -16,7 +16,7 @@ class UserPurchases
 
   def save
     purchase = Purchase.create(item_id: item_id, user_id: user_id)
-    address = Address.create(postalcode: postalcode, prefectures: prefecture, city: city, house_number: house_number, building_name: building_name,phone_number: phone_number,purchase_id:purchase.id)
+    address = Address.create(postalcode: postalcode, prefecture: prefecture, city: city, house_number: house_number, building_name: building_name,phone_number: phone_number,purchase_id:purchase.id)
   end
 
 end
