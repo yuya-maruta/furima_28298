@@ -50,10 +50,10 @@ RSpec.describe UserPurchases do
     
       end    
 
-      it 'prefectureが空だと保存できない' do
-        @user_purchases.prefecture = ''
+      it '_idが空だと保存できない' do
+        @user_purchases.prefecture_id = ''
         @user_purchases.valid?
-        expect(@user_purchases.errors.full_messages).to include("Prefecture can't be blank")
+        expect(@user_purchases.errors.full_messages).to include("Prefecture_id can't be blank")
       end
 
       it "phone_numberが12文字以上でハイフンがあれば登録できない" do

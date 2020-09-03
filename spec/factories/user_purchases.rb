@@ -3,7 +3,7 @@ FactoryBot.define do
    
     postalcode { '123-4567' }
     phone_number { '09012345678' }
-    prefecture { 2 }
+    prefecture_id { 2 }
     city { '東京都' }
     house_number { '1-1' }
     token {'a1b2'}
